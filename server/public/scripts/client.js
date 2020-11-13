@@ -126,7 +126,6 @@ function getCats() {//ENTER getCats
 
 function renderAnswer(mathArray) {//ENTER renderAnswer
     console.log('Here is the mathArray we got from the server',  mathArray);
-    console.log(mathArray[0].keyTwo);
     //append to the DOM
      $('#historySection').empty();
      for (let equation of mathArray){

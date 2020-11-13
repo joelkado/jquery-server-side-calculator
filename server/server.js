@@ -74,8 +74,9 @@ function division() {//ENTER division
   console.log('secondNumber is:', secondNumber);
   let equation =  firstNumber / secondNumber; 
   console.log(`${firstNumber} / ${secondNumber} = ${equation}`);
-  historyArray.keyFour = equation;
-  console.log('Here is our historyArray', historyArray);
+  mathArray[0].keyFour = equation;
+
+  console.log('Here is our mathArray', mathArray);
 
 }//EXIT division
 
