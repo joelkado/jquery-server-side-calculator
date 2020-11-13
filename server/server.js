@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 // ----these routes & data will vary for each assignment----
 const mathArray = [];
+const answerArray = [];
 //route to get marys cats
 app.get('/cat',(req, res) =>{
     console.log('sending cat data');
@@ -65,7 +66,8 @@ function division() {//ENTER division
   console.log('secondNumber is:', secondNumber);
   let equation =  firstNumber / secondNumber; 
   console.log(`${firstNumber} / ${secondNumber} = ${equation}`);
-
+  answerArray.push(equation);
+  console.log('Here is our answerArray', answerArray);
 
 }//EXIT division
 
@@ -77,6 +79,10 @@ let secondNumber = Number(mathArray[0].keytwo);
 console.log('secondNumber is:', secondNumber);
 let equation =  firstNumber * secondNumber; 
 console.log(`${firstNumber} * ${secondNumber} = ${equation}`);
+
+answerArray.push(equation);
+console.log('Here is our answerArray', answerArray);
+
 };//EXIT multiplication
 
 function subtraction() {//ENTER Subtraction
@@ -87,6 +93,8 @@ let secondNumber = Number(mathArray[0].keytwo);
 console.log('secondNumber is:', secondNumber);
 let equation =  firstNumber - secondNumber; 
 console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
+answerArray.push(equation);
+console.log('Here is our answerArray', answerArray);
 
 };//EXIT Subtraction
 
@@ -98,11 +106,17 @@ let secondNumber = Number(mathArray[0].keytwo);
 console.log('secondNumber is:', secondNumber);
 let equation =  firstNumber + secondNumber; 
 console.log(`${firstNumber} + ${secondNumber} = ${equation}`);
+//add answer to our answerArray
+answerArray.push(equation);
+
+console.log('Here is our answerArray', answerArray);
+
+
 }//EXIT addition
     
     //----end of our routes-----------
 
 //tell our server to start listening for requests on our port
 app.listen(port, ()=> {
-    console.log('server is lestining on port', port);
+    console.log('server is listening on port', port);
 });

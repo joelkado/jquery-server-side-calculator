@@ -37,7 +37,7 @@ mathObject.keyThree = '*';
 
 function subtract(event) {//ENTER subtract
   event.preventDefault();
-  console.log('ENTER subtrat');
+  console.log('ENTER subtract');
 mathObject.keyThree = '-';
 };//EXIT subtract
 
@@ -78,6 +78,7 @@ function sendMathObject() {
         //get all cats again, so we see the update 
         //clear input
       //  $('#in-name').val('');
+      retrieveAnswer()
     }).catch(function (error) {
         //catch is run if there is a bad response from server
         //log th error and alert the user
@@ -86,6 +87,11 @@ function sendMathObject() {
     })
 
 }//EXIT addCat
+
+function retrieveAnswer() {//ENTER retrieveAnswer
+  console.log('ENTER retrieveAnswer');
+  
+}//EXIT retrieveAnswer
 
 function getCats() {//ENTER getCats
     //making a get request to our server
