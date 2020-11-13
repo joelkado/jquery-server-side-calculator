@@ -4,12 +4,49 @@ $(document).ready(readyNow);
 
 function readyNow() {//ENTER readyNow
     console.log('JQ is READY');
+$('#plusButton').on('click', addition);
+$('#minusButton').on('click', subtraction);
+$('#multiplyButton').on('click', multiplication);
+$('#divideButton').on('click', division);
+
 
     //click handler for save
     $('#btn-submit').on('click', createMathObject);
 
 }//EXIT readyNow
 
+let mathObject = {
+   
+};
+
+function division(event) {//ENTER division
+  event.preventDefault();
+
+  console.log('ENTER division');
+mathObject.keyThree = '/';
+};//EXIT division
+
+
+function multiplication(event) {//ENTER multiplication
+  event.preventDefault();
+
+  console.log('ENTER multiplication');
+mathObject.keyThree = '*';
+};//EXIT multiplication
+
+
+function subtraction(event) {//ENTER minusFunction
+  event.preventDefault();
+  console.log('ENTER subtraction');
+mathObject.keyThree = '-';
+};//EXIT minusFunction
+
+function addition(event) {//ENTER addition
+  event.preventDefault();
+
+  console.log('ENTER plusFunction');
+mathObject.keyThree = '+';
+};//EXIT addition
 
 
 function createMathObject (event) {//ENTER createMathObjectFunction
@@ -19,15 +56,13 @@ function createMathObject (event) {//ENTER createMathObjectFunction
 let valueOne = $('#inputOne').val();
 let valueTwo = $('#inputTwo').val();
 
+mathObject.keyOne = valueOne;
+mathObject.keytwo = valueTwo;
 
-
-  let mathObject = {
-    keyOne : valueOne,
-    keyTwo : valueTwo
-  }
+  
   //empty input fields
-  //$('#inputOne').val('');
-  //$('#inputTwo').val('');
+  $('#inputOne').val('');
+  $('#inputTwo').val('');
   console.log(mathObject.keyOne);
   console.log('This is our mathObject:', mathObject);
 };//EXIT createMathObjectFunction
