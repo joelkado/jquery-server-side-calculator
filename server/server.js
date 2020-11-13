@@ -35,6 +35,11 @@ app.get('/cat',(req, res) =>{
         console.log('Here is the current mathArray', mathArray);
 
         calculateQeue();
+    }) 
+    
+    app.get('/answer',(req, res) =>{
+        console.log('AJAX has arrived at SERVER');
+        res.send(answerArray);
     })
     
 function calculateQeue() {//ENTER calculateQeue

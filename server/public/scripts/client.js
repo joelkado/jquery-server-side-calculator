@@ -90,7 +90,17 @@ function sendMathObject() {
 
 function retrieveAnswer() {//ENTER retrieveAnswer
   console.log('ENTER retrieveAnswer');
-  
+  $.ajax({
+      method: 'GET',
+      url: '/answer'
+  }).then(function (response) {
+      console.log('Got Answer from SERVER:', response);
+    //  renderCats(response)
+  }).catch(function (error) {
+      //log th error and alert the user
+      console.log('Error', error);
+      alert('Something went wrong.')
+  })
 }//EXIT retrieveAnswer
 
 function getCats() {//ENTER getCats
