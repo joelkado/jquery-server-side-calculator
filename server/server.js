@@ -33,15 +33,15 @@ app.get('/cat',(req, res) =>{
           res.sendStatus(200); //200 is an ok status
           //push mathdata into our mathArray
   mathArray.push(mathData);
-      //push mathData into history
-        mathArray.push(mathData)
+      //push mathData into historyArray
+      //  history.push(mathData)
         console.log('Here is the current mathArray', mathArray);
         console.log('And, here is our history array', historyArray);
         calculateQeue();
     }) 
     
     app.get('/answer',(req, res) =>{
-        console.log('AJAX has arrived at SERVER with a GET Request');
+        console.log('AJAX has arrived with a GET Request');
         res.send(mathArray);
     })
     
@@ -87,8 +87,9 @@ let secondNumber = Number(mathArray[0].keyTwo);
 console.log('secondNumber is:', secondNumber);
 let equation =  firstNumber * secondNumber; 
 console.log(`${firstNumber} * ${secondNumber} = ${equation}`);
-historyArray.keyFour = equation;
-console.log('Here is our answerArray', answerArray);
+mathArray[0].keyFour = equation;
+
+console.log('Here is our mathArray', mathArray);
 
 };//EXIT multiplication
 
@@ -102,7 +103,7 @@ let equation =  firstNumber - secondNumber;
 console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
 mathArray[0].keyFour = equation;
 
-console.log('Here is our historyArray', historyArray);
+console.log('Here is our mathArray', mathArray);
 
 };//EXIT Subtraction
 

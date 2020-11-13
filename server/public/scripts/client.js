@@ -98,7 +98,6 @@ function retrieveAnswer() {//ENTER retrieveAnswer
   }).then(function (response) {
     let mathArray = response
       console.log('Got mathArray from SERVER:', mathArray);
-      console.log(mathArray[0].keyTwo);
       renderAnswer(mathArray)
   }).catch(function (error) {
       //log th error and alert the user
