@@ -10,8 +10,26 @@ function readyNow() {//ENTER readyNow
 
 }//EXIT readyNow
 
-function createMathObject () {//ENTER createMathObjectFunction
-  console.log('ENTER' createMathObjectFunction);
+
+
+function createMathObject (event) {//ENTER createMathObjectFunction
+  event.preventDefault();
+  console.log('ENTER createMathObject');
+//move values from input fields into mathObject
+let valueOne = $('#inputOne').val();
+let valueTwo = $('#inputTwo').val();
+
+
+
+  let mathObject = {
+    keyOne : valueOne,
+    keyTwo : valueTwo
+  }
+  //empty input fields
+  //$('#inputOne').val('');
+  //$('#inputTwo').val('');
+  console.log(mathObject.keyOne);
+  console.log('This is our mathObject:', mathObject);
 };//EXIT createMathObjectFunction
 
 function addCat(event) {//ENTER addCat
