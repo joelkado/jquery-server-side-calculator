@@ -4,5 +4,5 @@
       -[]that will clear the user input fields.
 
 When the submit (`=` button) is clicked, 
-  -[]capture this input, bundle it up in an object, 
+  -[X]capture this input, bundle it up in an object, 
   -[]and send this object to the server via a POST. 

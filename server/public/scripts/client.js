@@ -65,29 +65,20 @@ mathObject.keytwo = valueTwo;
   $('#inputTwo').val('');
   console.log(mathObject.keyOne);
   console.log('This is our mathObject:', mathObject);
+sendMathObject()
 };//EXIT createMathObjectFunction
 
-function addCat(event) {//ENTER addCat
-    //prevent form-refresh
-    event.preventDefault();
-
-    //get name to send to server
-    let name = $('#in-name').val();
-    console.log('Adding a cat', name);
-
+function sendMathObject() {
     $.ajax({
         method: 'POST',
-        url: '/cat',
-        data: {
-            cat: name
-        }
+        url: '/math',
+        data: mathObject
     }).then(function (response) {
         //then is run if we get a good response from server
-        console.log('Added Successfully');
+        console.log('mathObject has arrived at SERVER', response);
         //get all cats again, so we see the update 
-        getCats();
         //clear input
-        $('#in-name').val('');
+      //  $('#in-name').val('');
     }).catch(function (error) {
         //catch is run if there is a bad response from server
         //log th error and alert the user

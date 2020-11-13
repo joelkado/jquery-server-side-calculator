@@ -25,10 +25,10 @@ app.get('/cat',(req, res) =>{
     console.log('sending cat data');
     res.send(catArray);
 })
-    app.post('/cat', (req, res) => {
-        let catData = req.body.cat;
-        console.log('Getting catdata', catData);
-        catArray.push(catData);
+    app.post('/math', (req, res) => {
+        let mathData = req.body;
+        console.log('RECEIVED mathObject', mathData);
+        //catArray.push(catData);
         res.sendStatus(200); //200 is an ok status
         
     })
