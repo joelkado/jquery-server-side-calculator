@@ -39,16 +39,31 @@ app.get('/cat',(req, res) =>{
 function calculateQeue() {//ENTER calculateQeue
   console.log('ENTER calculateQeue');
 if (mathArray[0].keyThree === '+') {
-  Addition();
+  addition();
 }
 if (mathArray[0].keyThree === '-') {
-  Subtraction();
+  subtraction();
 }
+
+if (mathArray[0].keyThree === '*') {
+  multiplication();
+}
+
 
 
 };//EXIT calculateQeue 
 
-function Subtraction() {//ENTER serverSubtraction
+function multiplication() {//ENTER multiplication
+  console.log('ENTER multiplication');
+let firstNumber = Number(mathArray[0].keyOne);
+console.log('firstNumber is:', firstNumber);
+let secondNumber = Number(mathArray[0].keytwo);
+console.log('secondNumber is:', secondNumber);
+let equation =  firstNumber * secondNumber; 
+console.log(`${firstNumber} * ${secondNumber} = ${equation}`);
+};//EXIT multiplication
+
+function subtraction() {//ENTER Subtraction
   console.log('ENTER serverSubtraction');
 let firstNumber = Number(mathArray[0].keyOne);
 console.log('firstNumber is:', firstNumber);
@@ -57,9 +72,9 @@ console.log('secondNumber is:', secondNumber);
 let equation =  firstNumber - secondNumber; 
 console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
 
-}//EXIT serverSubtraction
+};//EXIT Subtraction
 
-function Addition (){//ENTER serverAddition
+function addition (){//ENTER addition
   console.log('ENTER serverAddition');
 let firstNumber = Number(mathArray[0].keyOne);
 console.log('firstNumber is:', firstNumber);
@@ -67,7 +82,7 @@ let secondNumber = Number(mathArray[0].keytwo);
 console.log('secondNumber is:', secondNumber);
 let equation =  firstNumber + secondNumber; 
 console.log(`${firstNumber} + ${secondNumber} = ${equation}`);
-}//EXIT serverAddition
+}//EXIT addition
     
     //----end of our routes-----------
 
