@@ -36,14 +36,28 @@ app.get('/cat',(req, res) =>{
         calculateQeue();
     })
     
-function calculateQeue() {//ENTER calculate
+function calculateQeue() {//ENTER calculateQeue
   console.log('ENTER calculateQeue');
 if (mathArray[0].keyThree === '+') {
   serverAddition();
 }
+if (mathArray[0].keyThree === '-') {
+  serverSubtraction();
+}
 
 
-};//EXIT calculate 
+};//EXIT calculateQeue 
+
+function serverSubtraction() {//ENTER serverSubtraction
+  console.log('ENTER serverSubtraction');
+let firstNumber = Number(mathArray[0].keyOne);
+console.log('firstNumber is:', firstNumber);
+let secondNumber = Number(mathArray[0].keytwo);
+console.log('secondNumber is:', secondNumber);
+let equation =  firstNumber + secondNumber; 
+console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
+
+}//EXIT serverSubtraction
 
 function serverAddition (){//ENTER serverAddition
   console.log('ENTER serverAddition');
