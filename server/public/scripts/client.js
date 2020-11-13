@@ -69,7 +69,7 @@ mathObject.keyTwo = valueTwo;
 sendMathObject()
 };//EXIT createMathObjectFunction
 
-function sendMathObject() {
+function sendMathObject() {//ENTER sendMathObject
     $.ajax({
         method: 'POST',
         url: '/math',
@@ -77,6 +77,8 @@ function sendMathObject() {
     }).then(function (response) {
         //then is run if we get a good response from server
         console.log('mathObject has arrived at SERVER', response);
+        
+        
         //get all cats again, so we see the update 
         //clear input
       //  $('#in-name').val('');
@@ -127,9 +129,9 @@ function getCats() {//ENTER getCats
 function renderAnswer(mathArray) {//ENTER renderAnswer
     console.log('Here is the mathArray we got from the server',  mathArray);
     //append to the DOM
-     $('#historySection').empty();
+     $('#equationSection').empty();
      for (let equation of mathArray){
-     $('#historySection').append(`<li>${equation.keyOne} ${equation.keyThree} ${equation.keyTwo} = ${equation.keyFour}</li>` );
+     $('#equationSection').append(`<li>${equation.keyOne} ${equation.keyThree} ${equation.keyTwo} = ${equation.keyFour}</li>` );
 }
     //for (let cat of catArray) {
     //     $('#cat-list').append(`<li>${cat}</li>`);

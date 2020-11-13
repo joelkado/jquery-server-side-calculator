@@ -19,8 +19,8 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended : true}));
 
 // ----these routes & data will vary for each assignment----
-const mathArray = [];
-const answerArray = [];
+let mathArray = [];
+//const answerArray = [];
 const historyArray = [];
 //route to get marys cats
 app.get('/cat',(req, res) =>{
@@ -31,8 +31,11 @@ app.get('/cat',(req, res) =>{
         let mathData = req.body;
         console.log('Here is our mathData', mathData);
           res.sendStatus(200); //200 is an ok status
-          //push mathdata into our mathArray
-  mathArray.push(mathData);
+//clear the mathArray so it can house a new equation
+ mathArray = [];
+  
+  //push mathdata into our mathArray
+mathArray.push(mathData);
       //push mathData into historyArray
       //  history.push(mathData)
         console.log('Here is the current mathArray', mathArray);
