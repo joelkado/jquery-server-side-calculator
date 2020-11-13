@@ -57,13 +57,15 @@ let valueOne = $('#inputOne').val();
 let valueTwo = $('#inputTwo').val();
 
 mathObject.keyOne = valueOne;
-mathObject.keytwo = valueTwo;
+mathObject.keyTwo = valueTwo;
 
   
   //empty input fields
   $('#inputOne').val('');
   $('#inputTwo').val('');
   console.log('This is our mathObject:', mathObject);
+//append math expression to DOM
+//$('#historySection').append(`<li>${valueOne}  ${valueTwo}</li>`)
 sendMathObject()
 };//EXIT createMathObjectFunction
 
@@ -94,8 +96,10 @@ function retrieveAnswer() {//ENTER retrieveAnswer
       method: 'GET',
       url: '/answer'
   }).then(function (response) {
-      console.log('Got Answer from SERVER:', response);
-    //  renderCats(response)
+    let mathArray = response
+      console.log('Got mathArray from SERVER:', mathArray);
+      console.log(mathArray[0].keyTwo);
+      renderAnswer(mathArray)
   }).catch(function (error) {
       //log th error and alert the user
       console.log('Error', error);
@@ -121,11 +125,15 @@ function getCats() {//ENTER getCats
     console.log('EXIT getCats');
 }//EXIT getCats
 
-function renderCats(catArray) {//ENTER renderCats
-    console.log('Here is the catsArray we got from the server', catArray);
+function renderAnswer(mathArray) {//ENTER renderAnswer
+    console.log('Here is the mathArray we got from the server',  mathArray);
+    console.log(mathArray[0].keyTwo);
     //append to the DOM
-    $('#cat-list').empty();
-    for (let cat of catArray) {
-        $('#cat-list').append(`<li>${cat}</li>`);
-    }
-}//EXIT renderCats
+     $('#historySection').empty();
+     for (let equation of mathArray){
+     $('#historySection').append(`<li>${equation.keyOne} ${equation.keyThree} ${equation.keyTwo} = ${equation.keyFour}</li>` );
+}
+    //for (let cat of catArray) {
+    //     $('#cat-list').append(`<li>${cat}</li>`);
+    // }
+}//EXIT renderAnswer
