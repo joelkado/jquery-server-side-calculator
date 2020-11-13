@@ -27,13 +27,33 @@ app.get('/cat',(req, res) =>{
 })
     app.post('/math', (req, res) => {
         let mathData = req.body;
-        console.log('RECEIVED mathObject', mathData);
+        console.log('Here is our mathData', mathData);
         //push mathdata into our mathArray
-        mathArray.push(mathData);
         console.log('Here is the current mathArray', mathArray);
         res.sendStatus(200); //200 is an ok status
-        
+        mathArray.push(mathData);
+
+        calculateQeue();
     })
+    
+function calculateQeue() {//ENTER calculate
+  console.log('ENTER calculateQeue');
+if (mathArray[0].keyThree === '+') {
+  serverAddition();
+}
+
+};//EXIT calculate 
+
+function serverAddition (){//ENTER serverAddition
+  console.log('ENTER serverAddition');
+let firstNumber = Number(mathArray[0].keyOne);
+console.log('firstNumber is:', firstNumber);
+let secondNumber = Number(mathArray[0].keytwo);
+console.log('secondNumber is:', secondNumber);
+let equation =  firstNumber + secondNumber; 
+console.log(`${firstNumber} + ${secondNumber} = ${equation}`);
+}//EXIT serverAddition
+    
     //----end of our routes-----------
 
 //tell our server to start listening for requests on our port
