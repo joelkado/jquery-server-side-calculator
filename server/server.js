@@ -38,6 +38,7 @@ app.get('/cat',(req, res) =>{
     
 function calculateQeue() {//ENTER calculateQeue
   console.log('ENTER calculateQeue');
+
 if (mathArray[0].keyThree === '+') {
   addition();
 }
@@ -49,9 +50,24 @@ if (mathArray[0].keyThree === '*') {
   multiplication();
 }
 
+if (mathArray[0].keyThree === '/') {
+  division();
+}
 
 
 };//EXIT calculateQeue 
+
+function division() {//ENTER division
+  console.log('ENTER division');
+  let firstNumber = Number(mathArray[0].keyOne);
+  console.log('firstNumber is:', firstNumber);
+  let secondNumber = Number(mathArray[0].keytwo);
+  console.log('secondNumber is:', secondNumber);
+  let equation =  firstNumber / secondNumber; 
+  console.log(`${firstNumber} / ${secondNumber} = ${equation}`);
+
+
+}//EXIT division
 
 function multiplication() {//ENTER multiplication
   console.log('ENTER multiplication');
