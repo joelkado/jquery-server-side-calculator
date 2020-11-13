@@ -6,9 +6,13 @@ function readyNow() {//ENTER readyNow
     console.log('JQ is READY');
 
     //click handler for save
-    $('#btn-submit').on('click', addCat)
+    $('#btn-submit').on('click', createMathObject);
 
 }//EXIT readyNow
+
+function createMathObject () {//ENTER createMathObjectFunction
+  console.log('ENTER' createMathObjectFunction);
+};//EXIT createMathObjectFunction
 
 function addCat(event) {//ENTER addCat
     //prevent form-refresh
