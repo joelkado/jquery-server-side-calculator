@@ -100,7 +100,7 @@ let secondNumber = Number(mathArray[0].keyTwo);
 console.log('secondNumber is:', secondNumber);
 let equation =  firstNumber - secondNumber; 
 console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
-historyArray.keyFour = equation;
+mathArray[0].keyFour = equation;
 
 console.log('Here is our historyArray', historyArray);
 
