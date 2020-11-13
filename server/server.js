@@ -19,7 +19,7 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended : true}));
 
 // ----these routes & data will vary for each assignment----
-const catArray = ['Abby', 'Kyo', 'Fred'];
+const mathArray = [];
 //route to get marys cats
 app.get('/cat',(req, res) =>{
     console.log('sending cat data');
@@ -28,7 +28,9 @@ app.get('/cat',(req, res) =>{
     app.post('/math', (req, res) => {
         let mathData = req.body;
         console.log('RECEIVED mathObject', mathData);
-        //catArray.push(catData);
+        //push mathdata into our mathArray
+        mathArray.push(mathData);
+        console.log('Here is the current mathArray', mathArray);
         res.sendStatus(200); //200 is an ok status
         
     })
