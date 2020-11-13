@@ -29,9 +29,9 @@ app.get('/cat',(req, res) =>{
         let mathData = req.body;
         console.log('Here is our mathData', mathData);
         //push mathdata into our mathArray
-        console.log('Here is the current mathArray', mathArray);
         res.sendStatus(200); //200 is an ok status
         mathArray.push(mathData);
+        console.log('Here is the current mathArray', mathArray);
 
         calculateQeue();
     })
@@ -41,6 +41,7 @@ function calculateQeue() {//ENTER calculate
 if (mathArray[0].keyThree === '+') {
   serverAddition();
 }
+
 
 };//EXIT calculate 
 
