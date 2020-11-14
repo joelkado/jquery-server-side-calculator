@@ -52,6 +52,13 @@ mathObject.keyThree = '+';
 function createMathObject (event) {//ENTER createMathObjectFunction
   event.preventDefault();
   console.log('ENTER createMathObject');
+  
+  //prevent user from neglecting input fields.
+
+  if($('#inputOne').val() === '' || $('#inputTwo').val() === ''){
+    alert('Enter values into the input fields');
+  } else {
+
 //move values from input fields into mathObject
 let valueOne = $('#inputOne').val();
 let valueTwo = $('#inputTwo').val();
@@ -67,9 +74,11 @@ mathObject.keyTwo = valueTwo;
 //append math expression to DOM
 //$('#historySection').append(`<li>${valueOne}  ${valueTwo}</li>`)
 sendMathObject()
+  }
 };//EXIT createMathObjectFunction
 
 function sendMathObject() {//ENTER sendMathObject
+
     $.ajax({
         method: 'POST',
         url: '/math',
