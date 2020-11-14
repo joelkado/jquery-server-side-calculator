@@ -9,24 +9,23 @@
     <title>express intro</title>
 </head>
 <body>
-  <h1>Server Side Calculator</h1>
+  <h1 class="center">Server Side Calculator</h1>
   <header>
-    <h2>Add a Cat</h2>
       <form action="">
         <label></label>
             <input type="number" id="inputOne" placeholder="INPUT NUMBER"/>
+            <button id="plusButton">+</button>
+            <button id="minusButton">-</button>
+            <button id="multiplyButton">*</button>
+            <button id="divideButton">/</button>
+            <button id="clearButton">CLEAR</button>
             <input type="number" id="inputTwo" placeholder="INPUT NUMBER"/>
-<button id="plusButton">+</button>
-<button id="minusButton">-</button>
-<button id="multiplyButton">*</button>
-<button id="divideButton">/</button>
-<button id="clearButton">CLEAR</button>
-
-<button id="btn-submit">=</button>
+            <button id="btn-submit">=</button>
         </form>
-    <ul id="equationSection"></ul>
+    <section id="equationSection"></section>
   </header>
   <main>
+    <h2>History</h2>
     <section id="historySection">
     </section>
   </main>

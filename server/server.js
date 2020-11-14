@@ -28,10 +28,6 @@ app.get('/history',(req, res) =>{
     res.send(historyArray);
 })
 
-app.get('/cat',(req, res) =>{
-    console.log('sending cat data');
-    res.send(catArray);
-})
     app.post('/math', (req, res) => {
         let mathData = req.body;
         console.log('Here is our mathData', mathData);
@@ -71,7 +67,6 @@ if (mathArray[0].keyThree === '/') {
   division();
 }
 
-
 };//EXIT calculateQeue 
 
 function division() {//ENTER division
@@ -83,24 +78,22 @@ function division() {//ENTER division
   let equation =  firstNumber / secondNumber; 
   console.log(`${firstNumber} / ${secondNumber} = ${equation}`);
   mathArray[0].keyFour = equation;
-
+  
   console.log('Here is our mathArray', mathArray);
   addToHistory()
-
 }//EXIT division
 
 function multiplication() {//ENTER multiplication
   console.log('ENTER multiplication');
-let firstNumber = Number(mathArray[0].keyOne);
-console.log('firstNumber is:', firstNumber);
-let secondNumber = Number(mathArray[0].keyTwo);
-console.log('secondNumber is:', secondNumber);
-let equation =  firstNumber * secondNumber; 
-console.log(`${firstNumber} * ${secondNumber} = ${equation}`);
-mathArray[0].keyFour = equation;
-
-console.log('Here is our mathArray', mathArray);
-addToHistory()
+  let firstNumber = Number(mathArray[0].keyOne);
+  console.log('firstNumber is:', firstNumber);
+  let secondNumber = Number(mathArray[0].keyTwo);
+  console.log('secondNumber is:', secondNumber);
+  let equation =  firstNumber * secondNumber; 
+  mathArray[0].keyFour = equation;
+  
+  console.log('Here is our mathArray', mathArray);
+  addToHistory()
 };//EXIT multiplication
 
 function addToHistory() {//ENTER addToHistory
@@ -111,34 +104,32 @@ function addToHistory() {//ENTER addToHistory
 
 function subtraction() {//ENTER Subtraction
   console.log('ENTER serverSubtraction');
-let firstNumber = Number(mathArray[0].keyOne);
-console.log('firstNumber is:', firstNumber);
-let secondNumber = Number(mathArray[0].keyTwo);
-console.log('secondNumber is:', secondNumber);
-let equation =  firstNumber - secondNumber; 
-console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
-mathArray[0].keyFour = equation;
+  let firstNumber = Number(mathArray[0].keyOne);
+  console.log('firstNumber is:', firstNumber);
+  let secondNumber = Number(mathArray[0].keyTwo);
+  console.log('secondNumber is:', secondNumber);
+  let equation =  firstNumber - secondNumber; 
+  console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
+  mathArray[0].keyFour = equation;
 
-console.log('Here is our mathArray', mathArray);
-addToHistory()
+  console.log('Here is our mathArray', mathArray);
+  addToHistory()
 
 };//EXIT Subtraction
 
 function addition (){//ENTER addition
   console.log('ENTER serverAddition');
-let firstNumber = Number(mathArray[0].keyOne);
-console.log('firstNumber is:', firstNumber);
-let secondNumber = Number(mathArray[0].keyTwo);
-console.log('secondNumber is:', secondNumber);
-let equation =  firstNumber + secondNumber; 
-console.log(`${firstNumber} + ${secondNumber} = ${equation}`);
-//add answer to our answerArray
-mathArray[0].keyFour = equation;
+  let firstNumber = Number(mathArray[0].keyOne);
+  console.log('firstNumber is:', firstNumber);
+  let secondNumber = Number(mathArray[0].keyTwo);
+  console.log('secondNumber is:', secondNumber);
+  let equation =  firstNumber + secondNumber; 
+  console.log(`${firstNumber} + ${secondNumber} = ${equation}`);
+  //add answer to our answerArray
+  mathArray[0].keyFour = equation;
 
-console.log('Here is our mathArray', mathArray);
-addToHistory()
-
-
+  console.log('Here is our mathArray', mathArray);
+  addToHistory()
 }//EXIT addition
     
     //----end of our routes-----------
