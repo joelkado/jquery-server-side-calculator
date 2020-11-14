@@ -33,7 +33,6 @@ app.get('/cat',(req, res) =>{
           res.sendStatus(200); //200 is an ok status
 //clear the mathArray so it can house a new equation
  mathArray = [];
-  
   //push mathdata into our mathArray
 mathArray.push(mathData);
       //push mathData into historyArray
@@ -94,8 +93,14 @@ console.log(`${firstNumber} * ${secondNumber} = ${equation}`);
 mathArray[0].keyFour = equation;
 
 console.log('Here is our mathArray', mathArray);
-
+addToHistory()
 };//EXIT multiplication
+
+function addToHistory() {//ENTER addToHistory
+  console.log('ENTER addToHistory');
+  historyArray.push(mathArray[0]);
+  console.log('Here is the current history', historyArray);
+}//EXIT addToHistory
 
 function subtraction() {//ENTER Subtraction
   console.log('ENTER serverSubtraction');
