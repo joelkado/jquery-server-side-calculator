@@ -8,16 +8,29 @@ $('#plusButton').on('click', add);
 $('#minusButton').on('click', subtract);
 $('#multiplyButton').on('click', multiply);
 $('#divideButton').on('click', divide);
-
-
-    //click handler for save
-    $('#btn-submit').on('click', createMathObject);
-
+//click handler for save
+$('#btn-submit').on('click', createMathObject);
+getHistory();
 }//EXIT readyNow
 
 let mathObject = {
    
 };
+
+function getHistory() {//ENTER getHistory
+  $.ajax({
+      method: 'GET',
+      url: '/history'
+  }).then(function (response) {
+    let history = response
+      console.log('Got history from SERVER:', history);
+      renderHistory(history);
+  })
+}//EXIT getHistory
+
+function renderHistory() {//ENTER renderHistory
+  console.log('ENTER renderHistory');
+}//EXIT renderHistory
 
 function divide(event) {//ENTER divide
   event.preventDefault();
