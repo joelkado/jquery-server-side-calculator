@@ -18,7 +18,7 @@ let mathObject = {
 };
 
 function getHistory() {//ENTER getHistory
-  console.log('ENTER getHistory');
+  //console.log('ENTER getHistory');
   $.ajax({
       method: 'GET',
       url: '/history'
@@ -33,9 +33,18 @@ function getHistory() {//ENTER getHistory
   })
 }//EXIT getHistory
 
-function renderHistory() {//ENTER renderHistory
-  console.log('ENTER renderHistory');
-}//EXIT renderHistory
+function renderHistory(history) {//ENTER renderHistory
+  console.log('rendering history'); 
+  
+  $('#historySection').empty();
+  for (let article of history) {
+  firstNumber = article.keyOne ;
+  secondNumber =  article.keyTwo;
+  operator = article.keyThree;
+  answer = article.keyFour; 
+  $('#historySection').append(`<li>${firstNumber} ${operator} ${secondNumber} = ${answer}</li>`)
+  }
+};//EXIT renderHistory
 
 function divide(event) {//ENTER divide
   event.preventDefault();

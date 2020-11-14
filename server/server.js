@@ -85,6 +85,7 @@ function division() {//ENTER division
   mathArray[0].keyFour = equation;
 
   console.log('Here is our mathArray', mathArray);
+  addToHistory()
 
 }//EXIT division
 
@@ -119,6 +120,7 @@ console.log(`${firstNumber} - ${secondNumber} = ${equation}`);
 mathArray[0].keyFour = equation;
 
 console.log('Here is our mathArray', mathArray);
+addToHistory()
 
 };//EXIT Subtraction
 
@@ -134,6 +136,7 @@ console.log(`${firstNumber} + ${secondNumber} = ${equation}`);
 mathArray[0].keyFour = equation;
 
 console.log('Here is our mathArray', mathArray);
+addToHistory()
 
 
 }//EXIT addition
