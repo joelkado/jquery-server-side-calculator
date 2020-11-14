@@ -23,6 +23,11 @@ let mathArray = [];
 //const answerArray = [];
 const historyArray = [];
 //route to get marys cats
+app.get('/history',(req, res) =>{
+    console.log('sending historyArray');
+    res.send(historyArray);
+})
+
 app.get('/cat',(req, res) =>{
     console.log('sending cat data');
     res.send(catArray);
@@ -45,6 +50,7 @@ mathArray.push(mathData);
     app.get('/answer',(req, res) =>{
         console.log('AJAX has arrived with a GET Request');
         res.send(mathArray);
+        console.log('mathArray sent');
     })
     
 function calculateQeue() {//ENTER calculateQeue

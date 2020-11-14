@@ -18,6 +18,7 @@ let mathObject = {
 };
 
 function getHistory() {//ENTER getHistory
+  console.log('ENTER getHistory');
   $.ajax({
       method: 'GET',
       url: '/history'
@@ -25,6 +26,10 @@ function getHistory() {//ENTER getHistory
     let history = response
       console.log('Got history from SERVER:', history);
       renderHistory(history);
+  }).catch(function (error) {
+      //log th error and alert the user
+      console.log('Error', error);
+      alert('Something went wrong.')
   })
 }//EXIT getHistory
 
