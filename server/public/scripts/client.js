@@ -13,7 +13,7 @@ $('#btn-submit').on('click', createMathObject);
 getHistory();
 }//EXIT readyNow
 
-let mathObject = {
+let mathObject = { keyThree : ''
    
 };
 
@@ -82,7 +82,7 @@ function createMathObject (event) {//ENTER createMathObjectFunction
   
   //prevent user from neglecting input fields.
 
-  if($('#inputOne').val() === '' || $('#inputTwo').val() === ''){
+  if($('#inputOne').val() === '' || $('#inputTwo').val() === '' || mathObject.keyThree === ''){
     alert('Enter values into the input fields');
   } else {
 
@@ -112,9 +112,10 @@ function sendMathObject() {//ENTER sendMathObject
         data: mathObject
     }).then(function (response) {
         //then is run if we get a good response from server
-        console.log('mathObject has arrived at SERVER', response);
-        
-        
+        console.log('mathObject made it to the SERVER', response);
+        //empty keyThree of our sendMathObject
+        mathObject.keyThree = ''
+        getHistory();
         //get all cats again, so we see the update 
         //clear input
       //  $('#in-name').val('');
@@ -126,7 +127,7 @@ function sendMathObject() {//ENTER sendMathObject
         alert('Something went wrong.')
     })
 
-}//EXIT addCat
+}//EXIT 
 
 function retrieveAnswer() {//ENTER retrieveAnswer
   console.log('ENTER retrieveAnswer');
