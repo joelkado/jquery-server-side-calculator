@@ -87,31 +87,30 @@ function createMathObject (event) {//ENTER createMathObjectFunction
   if($('#inputOne').val() === '' || $('#inputTwo').val() === '' || mathObject.keyThree === ''){
     alert('Enter values into the input fields and select an operator');
   } else {
+    //move values from input fields into mathObject
+    let valueOne = $('#inputOne').val();
+    let valueTwo = $('#inputTwo').val();
 
-//move values from input fields into mathObject
-let valueOne = $('#inputOne').val();
-let valueTwo = $('#inputTwo').val();
+    mathObject.keyOne = valueOne;
+    mathObject.keyTwo = valueTwo;
 
-mathObject.keyOne = valueOne;
-mathObject.keyTwo = valueTwo;
-
-  //empty input fields
-  $('#inputOne').val('');
-  $('#inputTwo').val('');
-  console.log('This is our mathObject:', mathObject);
-  //append math expression to DOM
-  //$('#historySection').append(`<li>${valueOne}  ${valueTwo}</li>`)
-sendMathObject()
+    //empty input fields 
+    $('#inputOne').val('');
+    $('#inputTwo').val('');
+    console.log('This is our mathObject:', mathObject);
+    //append math expression to DOM
+    //$('#historySection').append(`<li>${valueOne}  ${valueTwo}</li>`)
+    sendMathObject();
   }
 };//EXIT createMathObjectFunction
 
 function sendMathObject() {//ENTER sendMathObject
-
-    $.ajax({
-        method: 'POST',
-        url: '/math',
-        data: mathObject
-    }).then(function (response) {
+  console.log('ENTER sendMathObject');
+  $.ajax({
+      method: 'POST',
+      url: '/math',
+      data: mathObject
+  }).then(function (response) {
         //then is run if we get a good response from server
         console.log('mathObject made it to the SERVER', response);
         //empty keyThree of our sendMathObject
@@ -127,8 +126,7 @@ function sendMathObject() {//ENTER sendMathObject
         console.log('Error', error);
         alert('Something went wrong.')
     })
-
-}//EXIT 
+}//EXIT sendMathObject
 
 function retrieveAnswer() {//ENTER retrieveAnswer
   console.log('ENTER retrieveAnswer');
@@ -149,8 +147,8 @@ function retrieveAnswer() {//ENTER retrieveAnswer
 function renderAnswer(mathArray) {//ENTER renderAnswer
     console.log('Here is the mathArray we got from the server',  mathArray);
     //append to the DOM
-     $('#equationSection').empty();
-     for (let equation of mathArray){
-       $('#equationSection').append(`<h2>${equation.keyOne} ${equation.keyThree} ${equation.keyTwo} = ${equation.keyFour}</h2>` );
-     }
+    $('#equationSection').empty();
+    for (let equation of mathArray){
+      $('#equationSection').append(`<h2>${equation.keyOne} ${equation.keyThree} ${equation.keyTwo} = ${equation.keyFour}</h2>` );
+    }
 }//EXIT renderAnswer
