@@ -3,19 +3,24 @@ console.log('JS is CONNECTED');
 $(document).ready(readyNow);
 
 function readyNow() {//ENTER readyNow
-    console.log('JQ is READY');
+console.log('JQ is READY');
 $('#plusButton').on('click', add);
 $('#minusButton').on('click', subtract);
 $('#multiplyButton').on('click', multiply);
 $('#divideButton').on('click', divide);
-//click handler for save
+$('#clearButton').on('click', clear);
 $('#btn-submit').on('click', createMathObject);
 getHistory();
 }//EXIT readyNow
 
 let mathObject = { keyThree : ''
-   
 };
+
+function clear() {
+  $('#inputOne').val('');
+  $('#inputTwo').val('');
+  console.log('You have cleared the input fields.');
+}
 
 function getHistory() {//ENTER getHistory
   //console.log('ENTER getHistory');
@@ -80,7 +85,7 @@ function createMathObject (event) {//ENTER createMathObjectFunction
   //prevent user from neglecting input fields.
 
   if($('#inputOne').val() === '' || $('#inputTwo').val() === '' || mathObject.keyThree === ''){
-    alert('Enter values into the input fields');
+    alert('Enter values into the input fields and select an operator');
   } else {
 
 //move values from input fields into mathObject
